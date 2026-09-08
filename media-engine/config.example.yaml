@@ -1,0 +1,45 @@
+engine:
+  mode: autonomous
+  owner_approval_required: false
+  max_daily_long_form: 1
+  max_daily_shorts: 5
+  max_daily_reels: 5
+  max_daily_tiktok: 5
+  max_daily_facebook: 5
+  minimum_quality_score: 0.82
+  minimum_originality_score: 0.90
+  minimum_rights_confidence: 0.98
+
+content:
+  channel_strategy: "evergreen + timely explainers"
+  long_form_minutes: [6, 14]
+  short_seconds: [20, 60]
+  languages: [en-US]
+  require_sources: true
+  require_fact_check: true
+  require_asset_provenance: true
+
+platforms:
+  youtube:
+    enabled: true
+    publish_mode: scheduled
+  instagram:
+    enabled: true
+    publish_mode: scheduled
+  tiktok:
+    enabled: true
+    publish_mode: scheduled
+  facebook:
+    enabled: true
+    publish_mode: scheduled
+
+monetization:
+  youtube_ads: true
+  affiliate_links: true
+  sponsorships: true
+  digital_products: true
+  email_capture: true
+
+storage:
+  provider: s3_compatible
+  bucket: "CHANGE_ME"
