@@ -19,4 +19,7 @@ def is_eligible(*, ip_risk: float, blocked_reasons: set[str] | None = None) -> b
     reasons = blocked_reasons or set()
     if reasons & BLOCKED_REASON_CODES:
         return False
-    return float(ip_risk) >= 60
+    try:
+        return 60 <= float(ip_risk) <= 100
+    except (TypeError, ValueError):
+        return False

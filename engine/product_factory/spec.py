@@ -1,6 +1,7 @@
 """Product specification primitives used before production begins."""
 
 from dataclasses import dataclass, field
+from math import isfinite
 
 
 @dataclass
@@ -29,4 +30,4 @@ class ProductSpec:
                 self.marketplace.strip(),
                 self.differentiation.strip(),
             ]
-        ) and self.target_price > 0 and self.rights_status == "original"
+        ) and isfinite(self.target_price) and self.target_price > 0 and self.rights_status == "original"

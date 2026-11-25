@@ -36,6 +36,8 @@ class JobRecord:
 
     def transition(self, new_state: JobState, error: str | None = None) -> None:
         """Apply a state transition and keep the record audit-friendly."""
+        if not can_transition(self.state, new_state):
+            raise ValueError(f"Invalid job transition: {self.state.value} -> {new_state.value}")
         if new_state == JobState.FAILED:
             self.attempt += 1
         self.state = new_state
