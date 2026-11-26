@@ -36,8 +36,8 @@ Discover high-potential topics, generate original long-form videos and short-for
 
 ## Runtime
 
-The initial implementation uses Python for orchestration and FFmpeg for media assembly. OpenAI is the reasoning/content layer. GitHub Actions is the development/maintenance automation layer; production scheduling should eventually run on a persistent worker or scheduled cloud job rather than depending solely on Actions.
+The initial implementation uses Python for orchestration and FFmpeg for media assembly. Claude (Anthropic API, model set by `CLAUDE_MODEL`, default `claude-opus-5-5`) is the reasoning/content layer and needs `ANTHROPIC_API_KEY`. GitHub Actions is the development/maintenance automation layer; production scheduling should eventually run on a persistent worker or scheduled cloud job rather than depending solely on Actions.
 
 ## Credentials
 
-Never commit secrets. Use environment variables or a secret manager for OpenAI, YouTube/Google OAuth, TikTok, Meta, storage, and any optional media-generation providers.
+Never commit secrets. Use environment variables or a secret manager for the Anthropic API key, YouTube/Google OAuth, TikTok, Meta, storage, and any optional media-generation providers.
